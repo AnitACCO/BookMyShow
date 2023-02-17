@@ -3,6 +3,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Getter
 @Setter
@@ -21,4 +22,8 @@ public class Theater {
 
     @Column(name = "city")
     private String theatercity;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "theaterid", referencedColumnName = "theaterid")
+    List<Screen> screens = new ArrayList<>() ;
 }

@@ -20,6 +20,10 @@ public class Seat {
     @Column(name = "seatname")
     private String seatName;
 
+    @Column(name = "seattype")
+    private String seatType;
+
     @Column(name = "price")
     private int price;
 }
+
