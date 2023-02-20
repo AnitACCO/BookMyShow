@@ -5,12 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
 @Data
 @Entity
-@Table(name = "show")
+@Table(name = "shows")
 public class Show{
 
     @Id
@@ -19,11 +20,15 @@ public class Show{
 
     private String showtime;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "bookId")
-    private Booking book;
-    */
+    private Date showdate;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "screenid", referencedColumnName = "screenid")
+    private Screen screen;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "movieid", referencedColumnName = "movieid")
+    private Movie movie;
 
     
 }

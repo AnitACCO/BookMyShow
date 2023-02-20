@@ -23,4 +23,13 @@ public class Booking {
     private Date createdTime;
 
     private int bookingprice;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "screenid", referencedColumnName = "screenid")
+    private Screen screen;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "movieid", referencedColumnName = "movieid")
+    private Movie movie;
+
 }
