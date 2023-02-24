@@ -25,11 +25,19 @@ public class Booking {
     private int bookingprice;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "screenid", referencedColumnName = "screenid")
-    private Screen screen;
+    @JoinColumn(name = "showId", referencedColumnName = "showId")
+    private Show show;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "movieid", referencedColumnName = "movieid")
     private Movie movie;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    private User user;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "seatid", referencedColumnName = "seatid")
+    private Seat seat;
 
 }
